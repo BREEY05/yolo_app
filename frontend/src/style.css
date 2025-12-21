@@ -1,0 +1,81 @@
+:root {
+  font-family: 'Microsoft YaHei', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  /* Bright Theme Colors */
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --text-color: #2c3e50;
+  --primary-color: #409eff;
+  --primary-hover: #66b1ff;
+  --border-color: #dcdfe6;
+  
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #fff;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+button.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+input[type="text"], select {
+  padding: 0.6em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: var(--primary-color);
+}
+
+/* Utility classes */
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}

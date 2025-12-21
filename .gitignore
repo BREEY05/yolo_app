@@ -1,0 +1,43 @@
+# System / Environment Folders (DO NOT UPLOAD)
+Lib/
+Lib/**/*
+Library/
+Library/**/*
+Scripts/
+Scripts/**/*
+DLLs/
+DLLs/**/*
+conda-meta/
+etc/
+include/
+libs/
+share/
+tools/
+
+# Specific large files
+*.lib
+*.dll
+*.exe
+*.pdb
+*.npy
+*.pt
+*.pth
+*.bin
+db.sqlite3
+
+# Build Artifacts
+dist/
+build/
+__pycache__/
+*.spec
+
+# IDE
+.idea/
+.vscode/
+.trae/
+.vercel/
+.git/
+
+# Virtual Envs
+venv/
+env/

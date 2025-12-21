@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Registration</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Test Registration</h1>
+    <form id="registerForm">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="code">Verification Code:</label>
+            <input type="text" id="code" name="code" required>
+        </div>
+        <div>
+            <button type="button" id="sendCodeBtn">Send Code</button>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('sendCodeBtn').addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            try {
+                const response = await axios.post('http://localhost:8000/api/users/send_code/', { email });
+                document.getElementById('result').innerHTML = `<pre>${JSON.stringify(response.data, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const code = document.getElementById('code').value;
+            
+            try {
+                const response = await axios.post('http://localhost:8000/api/users/register/', { username, email, code });
+                document.getElementById('result').innerHTML = `<pre>Success: ${JSON.stringify(response.data, null, 2)}</pre>`;
+            } catch (error) {
+                let errorInfo = `Error: ${error.message}`;
+                if (error.response) {
+                    errorInfo += `\nStatus: ${error.response.status}`;
+                    errorInfo += `\nResponse: ${JSON.stringify(error.response.data, null, 2)}`;
+                }
+                document.getElementById('result').innerHTML = `<pre>${errorInfo}</pre>`;
+            }
+        });
+    </script>
+</body>
+</html>

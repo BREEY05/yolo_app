@@ -1,0 +1,24 @@
+# 1. IGNORE EVERYTHING
+*
+!*/
+
+# 2. ALLOW ONLY THESE FOLDERS (Source Code)
+!backend/
+!backend/**
+!frontend/
+!frontend/**
+
+# 3. ALLOW CONFIG FILES
+!vercel.json
+!.vercelignore
+
+# 4. EXPLICITLY IGNORE LARGE FILES INSIDE ALLOWED FOLDERS
+backend/temp/*.mp4
+backend/temp/*.avi
+backend/temp/*.png
+backend/temp/*.jpg
+backend/models/*.pt
+!backend/models/yolov8n.pt
+backend/db.sqlite3
+backend/__pycache__/
+backend/**/__pycache__/

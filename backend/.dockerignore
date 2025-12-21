@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+.git
+.gitignore
+README.md
+Dockerfile
+docker-compose.yml
+.vscode
+.idea
+*.log
+media/
+db.sqlite3
